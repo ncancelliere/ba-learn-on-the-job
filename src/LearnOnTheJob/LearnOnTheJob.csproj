@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Big Ambitions runs on Unity 2022.3 Mono with the .NET Framework 4.x API profile. -->
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>LearnOnTheJob</AssemblyName>
+    <RootNamespace>LearnOnTheJob</RootNamespace>
+    <Version>0.1.0</Version>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <!-- Compile against the exact BCL the game ships rather than the reference-assembly pack. -->
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <NoStdLib>true</NoStdLib>
+
+    <!-- Override with -p:BAManagedDir=... or the BA_MANAGED_DIR environment variable. -->
+    <BAManagedDir Condition="'$(BAManagedDir)' == ''">$(BA_MANAGED_DIR)</BAManagedDir>
+    <BAManagedDir Condition="'$(BAManagedDir)' == ''">/var/mnt/SamsungT9/SteamLibrary/steamapps/common/Big Ambitions/Big Ambitions_Data/Managed</BAManagedDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Lets MSBuild resolve a net472 target on Linux; the actual references come from the game below. -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <GameReference Include="mscorlib;netstandard;System;System.Core" />
+    <GameReference Include="UnityEngine;UnityEngine.CoreModule" />
+    <GameReference Include="BigAmbitions;BigAmbitions.Characters;BigAmbitions.ModAPI" />
+    <Reference Include="@(GameReference)">
+      <HintPath>$(BAManagedDir)/%(Identity).dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Locales/*.json" CopyToOutputDirectory="PreserveNewest" LinkBase="Locales" />
+  </ItemGroup>
+
+</Project>

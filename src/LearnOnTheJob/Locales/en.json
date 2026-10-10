@@ -1,0 +1,5 @@
+{
+  "learnonthejob_header": "Learn on the Job",
+  "learnonthejob_hours_per_step_label": "Hours on shift per step (+2 below 50%, +1 to 70%)",
+  "learnonthejob_hours_per_step_value": "{value} h"
+}
