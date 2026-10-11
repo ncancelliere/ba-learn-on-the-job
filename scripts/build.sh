@@ -40,5 +40,6 @@ rm -rf "${dist_dir}"
 mkdir -p "${dist_dir}/Locales"
 cp "${project_root}/build/out/LearnOnTheJob.dll" "${dist_dir}/"
 cp "${project_root}/src/LearnOnTheJob/Locales/"*.json "${dist_dir}/Locales/"
+cp "${project_root}/assets/thumbnail.png" "${dist_dir}/"
 
 echo "Built ${dist_dir}"
