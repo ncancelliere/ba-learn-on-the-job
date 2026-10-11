@@ -2,6 +2,8 @@
 
 A Big Ambitions mod that lets employees get better at their job just by doing it.
 
+Subscribe on the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3817894225).
+
 In the base game, an employee hired at 19% stays at 19% forever unless you pay for training or
 assign an HR manager. With this mod, every hour an employee spends on shift nudges their primary
 skill upward:
