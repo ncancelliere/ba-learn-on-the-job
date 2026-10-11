@@ -24,4 +24,4 @@ A step is a number of on-shift hours, set by a slider under **Options > Mods** (
 
 Subscribe and load a save. Loading a save with mods creates a modded copy; your original save is untouched.
 
-Source and issue tracker: (add repository link)
+Source and issue tracker: https://github.com/ncancelliere/ba-learn-on-the-job
